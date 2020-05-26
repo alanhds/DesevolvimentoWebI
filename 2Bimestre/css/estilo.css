@@ -1,0 +1,15 @@
+.esquerda{
+    background-color: aquamarine;
+    height: 200px;
+}
+
+.direita{
+    background-color: blue;
+    height: 200px;
+}
+
+#titulo{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
