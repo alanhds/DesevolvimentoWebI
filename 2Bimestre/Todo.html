@@ -6,6 +6,32 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/todo.css">
 
+    <script>
+        var cont =0;
+       //Funcao adiciona uma nova linha na tabela
+        function adicionaLinha(idTabela,idTexto) {
+
+        var tabela = document.getElementById(idTabela);
+        var txtTodo = document.getElementById(idTexto);
+        
+        var numeroLinhas = tabela.rows.length;
+        var linha = tabela.insertRow(numeroLinhas);
+        var celula1 = linha.insertCell(0);
+        var celula2 = linha.insertCell(1);   
+        var celula3 = linha.insertCell(2); 
+        celula1.innerHTML =  cont; 
+        celula2.innerHTML =  txtTodo; 
+        celula3.innerHTML =  "<button onclick='removeLinha(this)'>Remover</button>";
+          
+        cont=cont+1;
+        }
+
+        // funcao remove uma linha da tabela
+        function removeLinha(linha) {
+        var i=linha.parentNode.parentNode.rowIndex;
+        document.getElementById('tabelaTodo').deleteRow(i);
+        }  
+    </script>
 </head>
 
 
@@ -17,34 +43,16 @@
   
   <input class="form-control" type="text" id="txtTodo"> <br>
 
-  <button class="btn btn-danger" >Adicionar</button>
+  <button class="btn btn-danger" onclick="adicionaLinha('tabelaTodo','txtTodo')" id="btnAdicionar" >Adicionar</button>
 
-  <table class="table table-hover table-striped">
+  <table class="table table-hover table-striped" id="tabelaTodo">
     <thead>
         <td>Código  </td>
         <td>Tarefa  </td>
         <td>Ação    </td>
     </thead>
-
     <tbody>
-      <tr>
-        <td>1  </td>
-        <td>Teste 1  </td>
-        <td>Remover    </td>
-      </tr>   
-      
-      <tr>
-        <td>2  </td>
-        <td>Teste 2  </td>
-        <td>Remover    </td>
-      </tr>  
 
-      <tr>
-        <td>3  </td>
-        <td>Teste 3  </td>
-        <td>Remover    </td>
-      </tr>  
-      
     </tbody>
 
   </table>

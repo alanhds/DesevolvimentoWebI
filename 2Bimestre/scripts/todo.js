@@ -5,4 +5,10 @@
 //DENTRO DOS TD É NECESSARIO ADICIONAR O CONTEUDO TEXTUAL
 //AO FINAL ADICIONAR A LINHA DENTRO DA TABELA
 
-var element = document.createElement('tr');
+
+
+
+
+
+
+
