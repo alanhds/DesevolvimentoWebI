@@ -10,12 +10,6 @@ var txtTarefa  = document.querySelector('#txtTarefa');
 var btnAdicionar  = document.querySelector('#btnAdicionar');
 var spnMensagem = document.querySelector('#spnMensagem');
 var tblTarefas = document.querySelector('#tblTarefas tbody');
-
-//objeto com mais de uma propriedade
-var objeto={
-    
-};
-
 var tarefas = [];//criando uma variavel tipo array
 
 
@@ -31,25 +25,39 @@ btnAdicionar.onclick = function(){
       var textMensagem = document.createTextNode('Por favor, preencha o campo!');//cria o texto
       spnMensagem.appendChild(textMensagem);
     }else{
-
-        //criando elementos da tabela
-            var linha = document.createElement('tr');
-            var celulaCodigo = document.createElement('td');
-            var celulaConteudo = document.createElement('td');  
-            var celulaRemover = document.createElement('td');
-        
-        //adicionando conteudo dentro da
-            celulaConteudo.appendChild(document.createTextNode(tarefa));
-
-        //adicionando celulas na linha
-            linha.appendChild(celulaCodigo);
-            linha.appendChild(celulaConteudo);
-            linha.appendChild(celulaRemover);
-
-        //adicionando a linha na tabela
-            tblTarefas.appendChild(linha);
-        
+        var objeto={
+            Codigo:0,
+            Tarefa: tarefa
+        };
+        tarefas.push(objeto);
+        reinderizarTabela();
     }
 };
 
  
+function reinderizarTabela(){
+    //foreach percorre todos itens do array 
+        for(t  of tarefas ){
+            console.log(t.Tarefa);//elemento.atributo
+        }
+}
+
+   /*
+//criando elementos da tabela
+    var linha = document.createElement('tr');
+    var celulaCodigo = document.createElement('td');
+    var celulaConteudo = document.createElement('td');  
+    var celulaRemover = document.createElement('td');
+
+//adicionando conteudo dentro da
+    celulaConteudo.appendChild(document.createTextNode(objeto.Tarefa));
+    celulaCodigo.appendChild(document.createTextNode(objeto.Codigo));
+
+//adicionando celulas na linha
+    linha.appendChild(celulaCodigo);
+    linha.appendChild(celulaConteudo);
+    linha.appendChild(celulaRemover);
+
+//adicionando a linha na tabela
+    tblTarefas.appendChild(linha);
+    */
